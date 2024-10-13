@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   const links = [
     { title: "Search", link: "/search-weather" },
-    { title: "History", link: "/" },
+    { title: "History", link: "/history" },
     { title: "Forecast", link: "/forecast" },
   ];
   return (

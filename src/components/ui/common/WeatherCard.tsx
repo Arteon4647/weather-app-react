@@ -1,18 +1,18 @@
-import { Button, Card, Table } from "flowbite-react";
+import { Card, Table } from "flowbite-react";
 import { TodayWeatherDataType } from "../../../types/todayWeatherData";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { ForecastListItemWeatherType } from "../../../types/forecastWeatherDataType";
-import { FaHeart } from "react-icons/fa";
 
 type Props = {
   title?: string;
   weather:
     | TodayWeatherDataType
     | (ForecastListItemWeatherType & { name: string });
-  action?: () => void;
+  actions?: ReactNode[];
+
 };
 
-export const WeatherCard: FC<Props> = ({ weather, title, action }) => {
+export const WeatherCard: FC<Props> = ({ weather, title, actions }) => {
   const {
     main: { temp, temp_min, temp_max },
     wind: { speed },
@@ -60,11 +60,7 @@ export const WeatherCard: FC<Props> = ({ weather, title, action }) => {
         </Table.Body>
       </Table>
 
-      {action && (
-        <Button onClick={action}>
-          <FaHeart />
-        </Button>
-      )}
+      {actions}
     </Card>
   );
 };
